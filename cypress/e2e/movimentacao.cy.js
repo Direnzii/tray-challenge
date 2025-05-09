@@ -16,7 +16,7 @@ describe("Testes realizados na rota de login", () => {
   beforeEach(() => {
     cy.visitAndCheck(url, "movimentacao");
   });
-  it("Deve acessar a pagina, adicionar uma conta, criar uma movimentação e checar a movimentação criada", () => {
+  it("Deve acessar a pagina, adicionar uma conta, criar uma movimentação e checar a movimentação criada (Cenario 4)", () => {
     const movimentacao_obj = {
       tipo: "Despesa",
       data_movimentacao: "04/04/2025",

@@ -13,12 +13,12 @@ describe("Testes realizados na rota de login", () => {
   beforeEach(() => {
     cy.visitAndCheck(url, "login");
   });
-  it("Deve acessar a pagina, digitar nome, email valido e senha invalido e validar mensagem de erro", () => {
+  it("Deve acessar a pagina, digitar email ja cadastrado e senha invalido e validar mensagem de erro (Cenario 2)", () => {
     inserirEmailAndSenha(email, "errado");
     cy.get("button").contains("Entrar").click();
     cy.get(".alert").contains("Problemas com o login do usuário");
   });
-  it("Deve acessar a pagina, digitar nome, email e senhas validos e validar mensagem de bem vindo", () => {
+  it("Deve acessar a pagina, digitar nome, email e senhas validos e validar mensagem de bem vindo (Cenario 3)", () => {
     inserirEmailAndSenha(email, "teste");
     cy.get("button").contains("Entrar").click();
     cy.get(".alert").contains("Bem vindo, teste!");
