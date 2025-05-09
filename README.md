@@ -4,6 +4,8 @@ Este repositório contém o desafio automatizado utilizando [Cypress](https://ww
 
 ---
 ## TESTE-E2E
+Teste executado ✔️ <br>
+![](./imagens/cypress_run_pass.png)
 
 ### 🛠️ Instalação
 1. Certifique-se de ter o **Node.js** e o **Git** instalados em sua máquina.
@@ -33,5 +35,5 @@ npx cypress open
 ````
 ### 🤖 Uso de IA
 Para essa parte do desafio usei IA apenas para reescrever de forma melhor estruturada e mais bonita esse README
-- Mensagem enviada
+- Mensagem enviada <br>
 ![](./imagens/chat_readme.png)
