@@ -1,4 +1,8 @@
-import { cadastrarEmail, inserirEmailAndSenha } from "../function/login/utils";
+import {
+  cadastrarEmail,
+  checarTextoPlaceHolderInput,
+  inserirEmailAndSenha,
+} from "../function/login/utils";
 import { url } from "../support/constants";
 
 describe("Testes realizados na rota de login", () => {
@@ -18,5 +22,9 @@ describe("Testes realizados na rota de login", () => {
     inserirEmailAndSenha(email, "teste");
     cy.get("button").contains("Entrar").click();
     cy.get(".alert").contains("Bem vindo, teste!");
+  });
+  it("Deve validar o placeholder dos inputs (Extra)", () => {
+    checarTextoPlaceHolderInput("#email", "Email");
+    checarTextoPlaceHolderInput("#senha", "Password");
   });
 });

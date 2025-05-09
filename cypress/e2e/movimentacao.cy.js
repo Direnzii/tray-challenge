@@ -38,6 +38,7 @@ describe("Testes realizados na rota de login", () => {
     cy.get("#conta").type(movimentacao_obj.conta);
     cy.get("#status_pago").click();
     cy.get("button").contains("Salvar").click();
+    cy.get(".alert").contains("Movimentação adicionada com sucesso!");
     cy.visitAndCheck(url, "extrato");
     cy.get("#mes").select("Abril");
     cy.get("#ano").select("2025");
@@ -49,5 +50,21 @@ describe("Testes realizados na rota de login", () => {
       movimentacao_obj.valor,
       movimentacao_obj.situacao
     );
+  });
+  it("Deve checar o texto do cabeçalho da tabela de extrato (Extra)", () => {
+    const textos_cabecalho = [
+      "Descrição",
+      "Dt Pagamento",
+      "Conta",
+      "Valor",
+      "Situação",
+      "Ações",
+    ];
+    inserirEmailAndSenha(email, "teste");
+    cy.get("button").contains("Entrar").click();
+    cy.visitAndCheck(url, "extrato");
+    textos_cabecalho.forEach((coluna) => {
+      cy.get("#tabelaExtrato").contains(coluna);
+    });
   });
 });

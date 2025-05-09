@@ -48,3 +48,7 @@ export function checarExtrato(
     cy.get("#tabelaExtrato").contains(text);
   });
 }
+
+export function checarTextoPlaceHolderInput(id, texto) {
+  cy.get(id).should("have.attr", "placeholder", texto);
+}
