@@ -1,4 +1,4 @@
 Cypress.Commands.add("visitAndCheck", (url, rota) => {
   cy.visit(`${url}/${rota}`);
-  cy.log("teste");
+  cy.location("pathname").should("eq", `/${rota}`);
 });
