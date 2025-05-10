@@ -5,6 +5,14 @@ Este repositório contém o desafio automatizado utilizando [Cypress](https://ww
 ## ✅ Tudo Rodando
 ![Tudo Rodando](./imagens/all_pass.gif)
 
+## 🏆 Boas Práticas
+- **Reutilização de métodos**: Funções e comandos desenvolvidos com foco na reutilização e manutenção.
+- **Arquitetura escalável**: Estrutura de pastas e arquivos organizada para facilitar a escalabilidade do projeto.
+- **Uso de constantes**: Evita duplicação de valores por meio da centralização de constantes reutilizáveis.
+- **Separação de variáveis de ambiente**: Utilização de arquivos separados para armazenar secrets e variáveis sensíveis.  
+  > ⚠️ **Nota**: Como este é um projeto de desafio, o arquivo `cypress.env.json` foi incluído no repositório apenas para fins de demonstração. Em um ambiente real, esse tipo de arquivo seria adicionado ao `.gitignore` e mantido fora do controle de versão.
+
+
 ## 📦 Configuração do Ambiente
 
 ### 🔹 Clonar o Repositório e Instalar Dependências
