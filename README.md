@@ -69,20 +69,30 @@ Utilizei IA apenas para reescrever este README de forma mais estruturada e visua
   ```
 
 ### 💡 Dicas
-Para melhorar a visualização dos resultados, configurei um **Docker Compose** para rodar um banco de dados e o **Grafana** localmente. Com poucos ajustes, é possível criar dashboards para análise dos testes:
 
-1. **Construa as imagens** em sua máquina:
+Para facilitar a visualização dos resultados dos testes, foi configurado um ambiente com **Docker Compose**, que executa um banco de dados e o **Grafana** localmente. Com poucos passos, é possível criar dashboards personalizados para análise:
+
+1. **Suba os containers**:
    ```bash
    docker compose up -d
    ```
-2. **Acesse a interface do Grafana**: `localhost:3000`
-   - **Adicione o banco de dados**  
-     ![Adicionar DB](./imagens/add_data_source.png)
-   - **Configure o banco de dados**  
-     ![Configuração DB](./imagens/configuracao_db_grafana.png)
-3. **Importe um dashboard pronto para o k6**  
+
+2. **Acesse o Grafana** em: [http://localhost:3000](http://localhost:3000)
+
+3. **Adicione uma fonte de dados (Data Source)**:
+   ![Adicionar DB](./imagens/add_data_source.png)
+
+4. **Configure a conexão com o banco de dados**:
+   ![Configuração DB](./imagens/configuracao_db_grafana.png)
+
+5. **Importe um dashboard pronto para visualização dos testes com k6**:
+   - Acesse a opção de importação de dashboards.
+   - Utilize o **ID: `14801`** para carregar o modelo usado no vídeo demonstrativo.
    ![Importação Grafana](./imagens/import_grafana.png)
-   - Utilize o **ID = 14801** para que fique igual ao vídeo demonstrativo.
+
+6. **Visualização final no Grafana**:
+   ![Demonstrativo](./imagens/demonstrativo_dash_grafana.png)
+
 
 ### 🤖 Uso de IA
 Utilizei IA em dois momentos:
