@@ -1,4 +1,5 @@
-import { url } from "../../support/constants";
+import { nomePadrao, senhaPadrao } from "../../support/constants";
+import { URL_SEU_BARRIGA } from "../../support/env";
 
 export function getEmailAleatorio() {
   /*basicamente essa função retrona um email diferente sempre*/
@@ -9,11 +10,11 @@ export function getEmailAleatorio() {
 
 export function cadastrarEmail(realizarVisita) {
   if (realizarVisita) {
-    cy.visitAndCheck(url, "cadastro");
+    cy.visitAndCheck(URL_SEU_BARRIGA, "cadastro");
   }
   let email = getEmailAleatorio();
-  cy.get("#nome").type("teste");
-  inserirEmailAndSenha(email, "teste");
+  cy.get("#nome").type(nomePadrao);
+  inserirEmailAndSenha(email, senhaPadrao);
   cy.get('[value="Cadastrar"]').click();
   return email;
 }
@@ -24,7 +25,7 @@ export function inserirEmailAndSenha(email, senha) {
 }
 
 export function adicionarUmaConta(nome) {
-  cy.visitAndCheck(url, "addConta");
+  cy.visitAndCheck(URL_SEU_BARRIGA, "addConta");
   cy.get("#nome").type(nome);
   cy.get("button").contains("Salvar").click();
   cy.get(".alert").contains("Conta adicionada com sucesso!");

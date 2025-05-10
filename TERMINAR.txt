@@ -1,0 +1,1 @@
+adicione mensagens repetidas em constante e os secrets em um cypress.env

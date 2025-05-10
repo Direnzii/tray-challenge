@@ -4,17 +4,18 @@ import {
   checarExtrato,
   inserirEmailAndSenha,
 } from "../function/login/utils";
-import { url } from "../support/constants";
+import { senhaPadrao, textBotaoEntrar } from "../support/constants";
+import { URL_SEU_BARRIGA } from "../support/env";
 
 describe("Testes realizados na rota de login", () => {
   let email;
   before(() => {
     email = cadastrarEmail(true);
-    inserirEmailAndSenha(email, "teste");
-    cy.get("button").contains("Entrar").click();
+    inserirEmailAndSenha(email, senhaPadrao);
+    cy.get("button").contains(textBotaoEntrar).click();
   });
   beforeEach(() => {
-    cy.visitAndCheck(url, "movimentacao");
+    cy.visitAndCheck(URL_SEU_BARRIGA, "movimentacao");
   });
   it("Deve acessar a pagina, adicionar uma conta, criar uma movimentação e checar a movimentação criada (Cenario 4)", () => {
     const movimentacao_obj = {
@@ -28,7 +29,7 @@ describe("Testes realizados na rota de login", () => {
       situacao: "Pago",
     };
     adicionarUmaConta("conta_1");
-    cy.visitAndCheck(url, "movimentacao");
+    cy.visitAndCheck(URL_SEU_BARRIGA, "movimentacao");
     cy.get("#tipo").select(movimentacao_obj.tipo);
     cy.get("#data_transacao").type(movimentacao_obj.data_movimentacao);
     cy.get("#data_pagamento").type(movimentacao_obj.data_do_pagamento);
@@ -39,7 +40,7 @@ describe("Testes realizados na rota de login", () => {
     cy.get("#status_pago").click();
     cy.get("button").contains("Salvar").click();
     cy.get(".alert").contains("Movimentação adicionada com sucesso!");
-    cy.visitAndCheck(url, "extrato");
+    cy.visitAndCheck(URL_SEU_BARRIGA, "extrato");
     cy.get("#mes").select("Abril");
     cy.get("#ano").select("2025");
     cy.get('[value="Buscar"]').click();
@@ -60,9 +61,9 @@ describe("Testes realizados na rota de login", () => {
       "Situação",
       "Ações",
     ];
-    inserirEmailAndSenha(email, "teste");
-    cy.get("button").contains("Entrar").click();
-    cy.visitAndCheck(url, "extrato");
+    inserirEmailAndSenha(email, senhaPadrao);
+    cy.get("button").contains(textBotaoEntrar).click();
+    cy.visitAndCheck(URL_SEU_BARRIGA, "extrato");
     textos_cabecalho.forEach((coluna) => {
       cy.get("#tabelaExtrato").contains(coluna);
     });

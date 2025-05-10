@@ -1,13 +1,12 @@
 import {
   cadastrarEmail,
   checarTextoPlaceHolderInput,
-  inserirEmailAndSenha,
 } from "../function/login/utils";
-import { url } from "../support/constants";
+import { URL_SEU_BARRIGA } from "../support/env";
 
 describe("Testes realizados na rota de cadastro", () => {
   beforeEach(() => {
-    cy.visitAndCheck(url, "cadastro");
+    cy.visitAndCheck(URL_SEU_BARRIGA, "cadastro");
   });
   it("Deve acessar a pagina, digitar nome, email e senhas validos e validar mensagem de sucesso (Cenario 1)", () => {
     cadastrarEmail(false);
