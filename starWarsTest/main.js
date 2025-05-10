@@ -122,8 +122,8 @@ function validarC3PO() {
   const response = http.get(`${url}/people/2`);
   const mock = {
     name: "C-3PO",
-    height: "167", // altura em cm (como string)
-    mass: "75", // peso em kg (também string)
+    height: "167",
+    mass: "75",
   };
   check(response, {
     "Status-code é 200": validacaoStatusCode(200),
