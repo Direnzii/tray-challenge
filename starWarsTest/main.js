@@ -5,8 +5,8 @@ const url = "https://swapi.dev/api";
 
 export const options = {
   insecureSkipTLSVerify: true, // por algum motivo a api nao estava retornando com certificado, por isso essa linha
-  vus: 2,
-  iterations: 2,
+  vus: 10,
+  iterations: 10,
 };
 
 const validarContentType = (r) =>
